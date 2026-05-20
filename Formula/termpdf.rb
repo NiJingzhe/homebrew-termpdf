@@ -1,13 +1,15 @@
 class Termpdf < Formula
+  TERMPDF_VERSION = "0.2.0"
+
   desc "Terminal PDF reader built with Rust, ratatui, PDFium, and the kitty image protocol"
   homepage "https://github.com/NiJingzhe/TermPDF"
-  version "0.1.1"
+  version TERMPDF_VERSION
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/NiJingzhe/TermPDF/releases/download/v0.1.1/termpdf-0.1.1-aarch64-apple-darwin.tar.gz"
-      sha256 "684de354e1e5e1e6b6a347030b89b7dd0edfe49cbed8fabb13e841b3d661b2d4"
+      url "https://github.com/NiJingzhe/TermPDF/releases/download/v#{TERMPDF_VERSION}/termpdf-#{TERMPDF_VERSION}-aarch64-apple-darwin.tar.gz"
+      sha256 "283f77f49ccd5ba088d95cb2a5e2aef571dddaf7d87714f38f9479c5d12658b0"
     end
   end
 
