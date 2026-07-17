@@ -3,7 +3,6 @@ class Termpdf < Formula
 
   desc "Terminal PDF reader using PDFium and the kitty image protocol"
   homepage "https://github.com/NiJingzhe/TermPDF"
-  version TERMPDF_VERSION
   license "MIT"
 
   on_macos do
