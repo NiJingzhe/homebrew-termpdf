@@ -1,7 +1,7 @@
 class Termpdf < Formula
-  TERMPDF_VERSION = "0.4.1"
+  TERMPDF_VERSION = "0.4.2".freeze
 
-  desc "Terminal PDF reader built with Rust, ratatui, PDFium, and the kitty image protocol"
+  desc "Terminal PDF reader using PDFium and the kitty image protocol"
   homepage "https://github.com/NiJingzhe/TermPDF"
   version TERMPDF_VERSION
   license "MIT"
@@ -9,7 +9,7 @@ class Termpdf < Formula
   on_macos do
     on_arm do
       url "https://github.com/NiJingzhe/TermPDF/releases/download/v#{TERMPDF_VERSION}/termpdf-#{TERMPDF_VERSION}-aarch64-apple-darwin.tar.gz"
-      sha256 "695f77e6b0192d1817717b7d9e31c83edefc280f5319fc5dbea42f5ee212a027"
+      sha256 "6cb4222a613d1c435203848b99be09094f09a523bff56377aed0aa5a3b107aa7"
     end
   end
 
@@ -22,9 +22,15 @@ class Termpdf < Formula
       #!/bin/bash
       exec "#{libexec}/termpdf" "$@"
     EOS
+
+    generate_completions_from_executable(
+      libexec/"termpdf", "completions", base_name: "termpdf", shells: [:zsh, :fish]
+    )
   end
 
   test do
     assert_match "Terminal PDF viewer", shell_output("#{bin}/termpdf --help")
+    assert_match "#compdef termpdf", shell_output("#{bin}/termpdf completions zsh")
+    assert_match "complete -c termpdf", shell_output("#{bin}/termpdf completions fish")
   end
 end
