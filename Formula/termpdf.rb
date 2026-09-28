@@ -1,5 +1,5 @@
 class Termpdf < Formula
-  TERMPDF_VERSION = "0.4.2".freeze
+  TERMPDF_VERSION = "0.5.0".freeze
 
   desc "Terminal PDF reader using PDFium and the kitty image protocol"
   homepage "https://github.com/NiJingzhe/TermPDF"
@@ -8,7 +8,7 @@ class Termpdf < Formula
   on_macos do
     on_arm do
       url "https://github.com/NiJingzhe/TermPDF/releases/download/v#{TERMPDF_VERSION}/termpdf-#{TERMPDF_VERSION}-aarch64-apple-darwin.tar.gz"
-      sha256 "6cb4222a613d1c435203848b99be09094f09a523bff56377aed0aa5a3b107aa7"
+      sha256 "da1806002bf20bc523e700ffbf74f8783582f57db5a316e595ac1f09a973e406"
     end
   end
 
